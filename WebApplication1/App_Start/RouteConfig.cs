@@ -18,23 +18,30 @@ namespace WebApplication1
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Posts", action = "Index", id = UrlParameter.Optional },
+                namespaces: namespaces
+            );
+            
+
+            /*
+            routes.MapRoute(
                 name: "Posts",
-                url: "{controller}/{action}", defaults: new { controller = "Posts", action = "Index"
+                url: "{controller}/{action}", defaults: new
+                {
+                    controller = "Posts",
+                    action = "Index"
                 },
                 namespaces: namespaces
             );
 
             routes.MapRoute(
-                name:"Login", 
-                url: "{controller}/{action}", 
-                defaults: new {controller = "Auth", action = "Login"},
-                namespaces:namespaces);
-
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            name: "Login",
+            url: "{controller}/{action}",
+            defaults: new { controller = "Auth", action = "Login"  },
+            namespaces: namespaces);
+            */
         }
     }
 }
